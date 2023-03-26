@@ -9,9 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class WebAuthorizationConfig extends WebSecurityConfigurerAdapter{
 	
-	@Autowired
-	private CustomAuthenticationProvider authenticationProvider;
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic();
@@ -19,11 +16,6 @@ public class WebAuthorizationConfig extends WebSecurityConfigurerAdapter{
 			.anyRequest()
 			//.permitAll();
 			.authenticated();
-	}
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) {
-		auth.authenticationProvider(authenticationProvider);
 	}
 }
 
