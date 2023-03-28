@@ -15,7 +15,7 @@ public class ProjectConfig {
 	@Bean
 	public UserDetailsService userDetailsService() {
 		UserDetails u = new User("john", "1234", "read");
-		List<org.springframework.security.core.userdetails.UserDetails> users = List.of(u);
+		List<UserDetails> users = List.of(u);
 		return new InMemoryUserDetailsService(users);
 	}
 	
